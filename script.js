@@ -49,22 +49,26 @@ function calculateResults() {
   resultTable.innerHTML = ""; // Clear previous results
 
   const rows = document.querySelectorAll("#attendanceTable tr");
-  
+
   rows.forEach(row => {
     const name = row.children[0].textContent;
     let totalAbsentDays = 0;
+    let isSundayPresent = row.children[1].querySelector("input[type='checkbox']").checked;
+    let isSaturdayPresent = row.children[7].querySelector("input[type='checkbox']").checked;
+
     for (let i = 1; i <= 7; i++) {
       const checkbox = row.children[i].querySelector("input[type='checkbox']");
       if (!checkbox.checked) {
         totalAbsentDays += parseFloat(checkbox.value);
       }
     }
+
     const deductedAmountLastWeek = parseFloat(row.children[8].querySelector("input[type='number']").value) || 0;
     const totalDeductedAmount = (totalAbsentDays * deductedAmount) + deductedAmountLastWeek;
     let totalAmountToBeReceived = amountThisWeek - totalDeductedAmount;
 
     let finalAmountToBeReceived;
-    if (totalAmountToBeReceived > 0) {
+    if (totalAmountToBeReceived > 0 && isSundayPresent && isSaturdayPresent) {
       const additionalAmountToBeReceived = totalAmountToBeReceived * 0.1;
       finalAmountToBeReceived = totalAmountToBeReceived + additionalAmountToBeReceived;
     } else {
