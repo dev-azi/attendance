@@ -1,0 +1,40 @@
+/* Ensure equal width for all days columns and center checkboxes */
+.table th, .table td {
+  width: 12.5%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.form-check-input {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+/* Flex layout for inputs */
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .input-group {
+    flex-direction: column;
+  }
+ .form-group.ms-3 {
+    margin-left: 0!important;
+ }
+}
+
+.copy-notification {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
+  z-index: 1000;
+}
