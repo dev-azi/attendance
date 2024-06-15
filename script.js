@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const names = [
     "BIANCA", "JOMAR", "JUSTIN", "JEYA", "ESME", "JULIARD",
     "JULLIAN", "KORINA", "MAEDEN", "MARY", "MINA", "NATHANIEL",
-    "WAVENEY", "CYRUS"
+    "CHIN", "CYRUS"
   ];
 
   const attendanceTable = document.getElementById("attendanceTable");
